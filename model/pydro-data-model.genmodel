@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/test/src-gen" creationIcons="false" editDirectory="/test.edit/src-gen"
+    editorDirectory="/test.editor/src-gen" modelPluginID="test" modelName="Test" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>test.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Test" disposableProviderFactory="true" ecorePackage="test.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="test.ecore#//SeriesType">
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//SeriesType/puntual"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//SeriesType/areal"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//SeriesType/raster"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="test.ecore#//NodeType">
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//NodeType/station"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//NodeType/basin"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="test.ecore#//ProcedureFunctionType">
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/expression"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/hosh4p1l"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/junction"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/linearchannel"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/linearcombination"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/muskingumchannel"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/polynomial"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/sacenkf"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/sacramentosimplified"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/uhlinearchannel"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ProcedureFunctionType/ProcedureFunction"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="test.ecore#//AnalysisAction">
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//AnalysisAction/concatenateProno"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//AnalysisAction/uploadData"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="test.ecore#//ObjectiveFunction">
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/rmse"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/mse"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/bias"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/stdev_dif"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/r"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/nse"/>
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//ObjectiveFunction/cov"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="test.ecore#//AdjustMethod">
+      <genEnumLiterals ecoreEnumLiteral="test.ecore#//AdjustMethod/lfit"/>
+    </genEnums>
+    <genClasses ecoreClass="test.ecore#//Plan">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Plan/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Plan/topology"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Plan/procedures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Plan/forecast_date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Plan/time_interval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Plan/name"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//Topology">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Topology/nodes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Topology/timestart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Topology/timeend"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Topology/time_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Topology/analysis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Topology/interpolation_limit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Topology/cal_id"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//Procedure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/procedure_id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Procedure/function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/initial_states"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/time_interval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/time_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/overwrite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Procedure/overwrite_original"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Procedure/calibration"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Node/node_id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Node/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Node/node_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Node/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Node/time_interval"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//ProcedureFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//ProcedureFunction/boundaries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//ProcedureFunction/outputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//ProcedureFunction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//ProcedureBoundary">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test.ecore#//ProcedureBoundary/nodevariable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//ProcedureBoundary/name"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//NodeVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeVariable/variable_id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeVariable/series"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeVariable/series_prono"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeVariable/series_sim"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeVariable/derived"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeVariable/series_output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeVariable/adjust"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeVariable/linear_combination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeVariable/time_interval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeVariable/interpolation_limit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeVariable/extrapolate"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//ProcedureOutput"/>
+    <genClasses ecoreClass="test.ecore#//NodeSerie">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/series_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/tipo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//NodeSerie/observations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/lim_outliers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/lim_jump"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/x_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/y_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerie/moving_average"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//NodeSerieProno">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerieProno/cal_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerieProno/qualifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//NodeSerieProno/adjust"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//NodeSerieSim"/>
+    <genClasses ecoreClass="test.ecore#//DerivedNodeVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//DerivedNodeVariable/x_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//DerivedNodeVariable/y_offset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test.ecore#//DerivedNodeVariable/from"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//Observation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Observation/timestart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Observation/valor"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//Calibration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/calibrate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/result_index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/objective_function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/limit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/sigma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Calibration/ranges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/no_improve_thr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/max_stagnations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Calibration/max_iter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference test.ecore#//Calibration/calibration_period"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//ParameterRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//ParameterRange/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//ParameterRange/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//ParameterRange/index"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//CalibrationPeriod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//CalibrationPeriod/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//CalibrationPeriod/to"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//NodeSerieOutput"/>
+    <genClasses ecoreClass="test.ecore#//InterpolatedNodeVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test.ecore#//InterpolatedNodeVariable/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//InterpolatedNodeVariable/x_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//InterpolatedNodeVariable/y_offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//InterpolatedNodeVariable/interpolation_coefficient"/>
+    </genClasses>
+    <genClasses ecoreClass="test.ecore#//Adjust">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test.ecore#//Adjust/sim"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test.ecore#//Adjust/truth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//Adjust/method"/>
+    </genClasses>
+    <genClasses documentation="" ecoreClass="test.ecore#//LinearCombination">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//LinearCombination/intercept"/>
+      <genFeatures documentation="" createChild="false" ecoreFeature="ecore:EAttribute test.ecore#//LinearCombination/coefficients"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test" nsURI="http://www.example.org/test" nsPrefix="test">
+  <eClassifiers xsi:type="ecore:EClass" name="Plan">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topology" lowerBound="1"
+        eType="#//Topology" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="procedures" lowerBound="1"
+        upperBound="-1" eType="#//Procedure" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="forecast_date" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time_interval" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Topology" instanceClassName="Topology">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1" upperBound="-1"
+        eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestart" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeend" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="analysis" upperBound="-1"
+        eType="#//AnalysisAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolation_limit" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cal_id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Procedure">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="procedure_id" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" lowerBound="1"
+        eType="#//ProcedureFunction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial_states" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time_interval" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="overwrite" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="overwrite_original" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calibration" eType="#//Calibration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="node_id" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" lowerBound="1"
+        upperBound="-1" eType="#//NodeVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="node_type" eType="#//NodeType"
+        defaultValueLiteral="station"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time_interval" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcedureFunction" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundaries" lowerBound="1"
+        upperBound="-1" eType="#//ProcedureBoundary" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" lowerBound="1"
+        upperBound="-1" eType="#//ProcedureOutput" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ProcedureFunctionType"
+        defaultValueLiteral="ProcedureFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcedureBoundary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodevariable" lowerBound="1"
+        eType="#//NodeVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable_id" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="series" upperBound="-1"
+        eType="#//NodeSerie" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="series_prono" upperBound="-1"
+        eType="#//NodeSerieProno" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="series_sim" upperBound="-1"
+        eType="#//NodeSerieSim" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derived" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="series_output" upperBound="-1"
+        eType="#//NodeSerieOutput" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adjust" eType="#//Adjust"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linear_combination" eType="#//LinearCombination"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time_interval" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolation_limit" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extrapolate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcedureOutput" eSuperTypes="#//ProcedureBoundary"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeSerie">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="series_id" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="#//SeriesType"
+        defaultValueLiteral="puntual"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="observations" upperBound="-1"
+        eType="#//Observation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lim_outliers" upperBound="2"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Limits for outlier detection and removal. First item is the inferior theshold. Second item is the superior theshold."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lim_jump" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Jump detection theshold"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Offset to apply to the values."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Offset to apply to the time axis."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moving_average" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Apply a moving average to the series using a window of the specified duration."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeSerieProno" eSuperTypes="#//NodeSerie">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cal_id" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifier" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Add the specified string as the qualifier to the series. May be used to differentiate between ensemble members of a forecast run."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adjust" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Adjust the resulting series to the available observations by means of a linear regression"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeSerieSim" eSuperTypes="#//NodeSerie"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SeriesType">
+    <eLiterals name="puntual"/>
+    <eLiterals name="areal" value="1"/>
+    <eLiterals name="raster" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NodeType">
+    <eLiterals name="station"/>
+    <eLiterals name="basin" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedNodeVariable" eSuperTypes="#//NodeVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//NodeVariable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Observation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestart" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProcedureFunctionType">
+    <eLiterals name="expression"/>
+    <eLiterals name="hosh4p1l" value="1"/>
+    <eLiterals name="junction" value="2"/>
+    <eLiterals name="linearchannel" value="3"/>
+    <eLiterals name="linearcombination" value="4"/>
+    <eLiterals name="muskingumchannel" value="5"/>
+    <eLiterals name="polynomial" value="6"/>
+    <eLiterals name="sacenkf" value="7"/>
+    <eLiterals name="sacramentosimplified" value="8"/>
+    <eLiterals name="uhlinearchannel" value="9"/>
+    <eLiterals name="ProcedureFunction" value="10"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AnalysisAction">
+    <eLiterals name="concatenateProno"/>
+    <eLiterals name="uploadData" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Calibration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calibrate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result_index" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objective_function" eType="#//ObjectiveFunction"
+        defaultValueLiteral="rmse"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="limit" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ranges" upperBound="-1"
+        eType="#//ParameterRange" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no_improve_thr" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="1e-6"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_stagnations" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_iter" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="5000"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calibration_period" upperBound="-1"
+        eType="#//CalibrationPeriod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ObjectiveFunction">
+    <eLiterals name="rmse"/>
+    <eLiterals name="mse" value="1"/>
+    <eLiterals name="bias" value="2"/>
+    <eLiterals name="stdev_dif" value="3"/>
+    <eLiterals name="r" value="4"/>
+    <eLiterals name="nse" value="5"/>
+    <eLiterals name="cov" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterRange">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="-Infinity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="Infinity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalibrationPeriod">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeSerieOutput" eSuperTypes="#//NodeSerie"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InterpolatedNodeVariable" eSuperTypes="#//NodeVariable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="2" upperBound="2"
+        eType="#//NodeVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y_offset" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Duration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolation_coefficient"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float" defaultValueLiteral="0.5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Adjust">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sim" lowerBound="1" eType="#//NodeSerieProno"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="truth" lowerBound="1" eType="#//NodeSerie"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="#//AdjustMethod"
+        defaultValueLiteral="lfit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AdjustMethod">
+    <eLiterals name="lfit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinearCombination">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Option to derive data from a linear combination of available series. The resulting values will be the intercept plus each series value multiplied by its corresponding coefficient. If any of the values is null, the resulting value for that timestamp will be null."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intercept" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="coefficients" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Ordered coefficients of the linear combination. One for each item of series."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>
